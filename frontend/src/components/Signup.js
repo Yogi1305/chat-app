@@ -29,18 +29,22 @@ const Signup = () => {
       },
       withCredentials:true  // Include cookies or other credentials with the request
   });
+  if (res.data.success) {
+    navigate("/login");
+    toast.success(res.data.message);
+  }
   } catch (error) {
-    // toast.error(error.response.data.message);
+    toast.error(error.response.data.message);
     console.log("hello",error);
   }
    
-  // setUser({
-  //   fullName:"",
-  //       userName:"",
-  //       password:"",
-  //       confirmPassword:"",
-  //       gender:""
-  // })
+  setUser({
+    fullName:"",
+        userName:"",
+        password:"",
+        confirmPassword:"",
+        gender:""
+  })
    
   };
   return (
