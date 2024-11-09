@@ -65,14 +65,14 @@ export const login= async (req,res)=>{
   }
   const user= await User.findOne({userName});
   if(!user)return res.status(200).json({
-    message:"user doenot exist",
+    message:"user doesnot exist",
     success:false
   });
   const isPassword= await bcrpyt.compare(password,user.password);
   if(!isPassword)
   {
     return res.status(200).json({
-      message:"user doenot exist",
+      message:"password doesnot match",
       success:false
     });
 
